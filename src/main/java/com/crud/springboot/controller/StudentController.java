@@ -3,6 +3,7 @@ package com.crud.springboot.controller;
 import com.crud.springboot.model.Student;
 import com.crud.springboot.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +19,10 @@ import java.util.Optional;
 @Slf4j
 public class StudentController {
 
+    //note the fact that this is not a bean and is not autowired. This is just an interface
     private final StudentRepository studentRepository;
 
+    //Constructor injection of the dependancy
     public StudentController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
